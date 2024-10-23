@@ -1,6 +1,6 @@
+import Button from "@/components/Button/Button";
 import Slider from "@/components/Slider/Slider";
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -18,15 +18,7 @@ export default function Home() {
               <h1 className="text-4xl font-bold">BetOpinion</h1>
               <p className="text-xl py-3 text-center mdl:text-start">On-chain betting at your best opinions.</p>
               <p className="text-xl py-3 text-center mdl:text-start">Authenticate with your wallet and place your bet on what you believe in.</p>
-              <button className="bg-blue-900 text-white px-4 py-3 min-w-44 rounded-md flex flex-row shadow-sm hover:shadow-xl">
-                <Image
-                  src={"/logos/MetaMask_Fox.png"}
-                  alt="MetaMask Logo"
-                  width={24}
-                  height={24}
-                  className="mr-2"
-                />Connect with your Metamask
-              </button>
+              <Button icon={"/logos/MetaMask_Fox.png"}>Connect with your Metamask</Button>
             </div>
           </section>
           <div className="w-2/5 min-w-80"><Slider /></div>
