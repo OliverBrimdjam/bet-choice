@@ -13,6 +13,10 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "thehill.com"
+            },
+            {
+                protocol: "https",
+                hostname: "upload.wikimedia.org"
             }
         ]
     }

@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>BetChoice</title>
+        <title>BetChoice - login</title>
         <meta name="description" content="BetChoice" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
-      <div className="flex flex-col border-solid border-2 max-w-screen-2xl min-w-80 m-auto h-screen divide-y">
+      <div className="flex flex-col max-w-screen-2xl min-w-80 m-auto h-screen divide-y">
         <main className="flex flex-col my-8 mdl:pt-24 mdl:pb-24 mdl:flex-row items-center mdl:justify-center  ">
           <section className="w-1/3 my-4 min-w-80">
             <div className="mdl:px-10 flex flex-col items-center mdl:items-start">
