@@ -11,14 +11,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
-      <div className="flex flex-col border-solid border-2 max-w-screen-2xl m-auto border-red-500">
-        <main className="flex flex-col pt-24 pb-24 sm:flex-row sm:justify-center border-solid border-2 border-blue-500 ">
-          <section className="w-1/3">
-            <div className="sm:px-10 min-w-80">
+      <div className="flex flex-col border-solid border-2 max-w-screen-2xl min-w-80 m-auto h-screen divide-y">
+        <main className="flex flex-col my-8 mdl:pt-24 mdl:pb-24 mdl:flex-row items-center mdl:justify-center  ">
+          <section className="w-1/3 my-4 min-w-80">
+            <div className="mdl:px-10 flex flex-col items-center mdl:items-start">
               <h1 className="text-4xl font-bold">BetOpinion</h1>
-              <p className="text-xl py-3">On-chain betting at your best opinions.</p>
-              <p className="text-xl py-3">Authenticate with your wallet and place your bet on what you believe in.</p>
-              <button className="bg-blue-900 text-white px-4 py-3 min-w-44 rounded-md flex flex-row">
+              <p className="text-xl py-3 text-center mdl:text-start">On-chain betting at your best opinions.</p>
+              <p className="text-xl py-3 text-center mdl:text-start">Authenticate with your wallet and place your bet on what you believe in.</p>
+              <button className="bg-blue-900 text-white px-4 py-3 min-w-44 rounded-md flex flex-row shadow-sm hover:shadow-xl">
                 <Image
                   src={"/logos/MetaMask_Fox.png"}
                   alt="MetaMask Logo"
@@ -29,10 +29,10 @@ export default function Home() {
               </button>
             </div>
           </section>
-          <div className="w-2/5 min-w-80 bg-orange-500 border-solid border-2 border-blue-500"><Slider /></div>
+          <div className="w-2/5 min-w-80"><Slider /></div>
         </main>
-        <footer>
-          <p>lorotinha de footer mesmo sem pretensão</p>
+        <footer className="flex flex-row">
+          <p className="mx-12 my-6">@ 2024</p>
         </footer>
       </div>
     </>

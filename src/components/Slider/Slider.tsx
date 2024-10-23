@@ -57,7 +57,7 @@ export default function Slider() {
     return (
         <div className="relative w-full mx-auto">
             <div
-                className="relative h-[150px] sm:h-[260px]  mx-12 group"
+                className="relative aspect-video mx-12 group"
                 onMouseOver={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
             >
@@ -70,13 +70,13 @@ export default function Slider() {
             />
             </div>
             <button
-                className="absolute left-0 top-1/2 transform h-[259px] rounded-xl hover:bg-[#1a222f] mx-1 -mt-[10px] -translate-y-1/2 bg-[#111927] text-white p-2 group"
+                className="absolute left-0 top-1/2 transform h-1/4 w-1/32 rounded-xl hover:bg-[#1a222f] mx-1 -mt-[10px] -translate-y-1/2 bg-[#111927] text-white p-2 group"
                 onClick={prevImage}
             >
                 <ChevronLeft className="text-gray-400 group-hover:text-white" />
             </button>
             <button
-                className="absolute right-0 top-1/2 transform h-[259px] rounded-xl hover:bg-[#1a222f] mx-1 -mt-[10px] -translate-y-1/2 bg-[#111927] text-white p-2 group"
+                className="absolute right-0 top-1/2 transform h-1/4 w-1/32 rounded-xl hover:bg-[#1a222f] mx-1 -mt-[10px] -translate-y-1/2 bg-[#111927] text-white p-2 group"
                 onClick={nextImage}
             >
                 <ChevronRight className="text-gray-400 group-hover:text-white" />
