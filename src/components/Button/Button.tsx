@@ -1,13 +1,16 @@
 import Image from "next/image";
 
-type TButtonProps = {
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: React.ReactNode | string,
     children?: React.ReactNode,
 }
 
-export default function Button({ icon, children }: TButtonProps) {
+export default function Button({ icon, children, ...props }: IButtonProps) {
     return (
-        <button className="bg-blue-900 text-white px-4 py-3 min-w-44 rounded-md flex flex-row justify-center shadow-sm hover:shadow-xl">
+        <button
+            className="bg-blue-900 text-white px-4 py-3 min-w-44 rounded-md flex flex-row justify-center shadow-sm hover:shadow-xl"
+            {...props}
+        >
             {typeof icon === 'string'
                 ? <Image
                     src={icon}
