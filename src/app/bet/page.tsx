@@ -1,8 +1,20 @@
+"use client";
+
 import Button from "@/components/Button/Button";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Bet() {
+
+  const { push } = useRouter();
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (!localStorage.getItem("MetaMaskAccount")) return push("/");
+  }, [push]);
+
   return (
     <>
       <Head>
@@ -22,6 +34,9 @@ export default function Bet() {
               Authenticate with your wallet and place your bet on what you
               believe in.
             </p>
+            <div className="h-6 py-1">
+              <span>{message}</span>
+            </div>
           </header>
           <main className="flex flex-col my-4 mdl:pt-12 mdl:pb-12 mdl:flex-row items-center place-content-around">
             <div className="flex flex-col justify-center">
