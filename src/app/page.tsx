@@ -4,13 +4,23 @@ import Button from "@/components/Button/Button";
 import Slider from "@/components/Slider/Slider";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { signIn } from "@/services/Web3Services";
 
 export default function Home() {
 
   const { push } = useRouter();
+  const [message, setMessage] = useState('');
 
   function loginBtnClick() {
-    push("/bet");
+    setMessage('connecting to your wallet.....please, wait.');
+
+    signIn()
+      .then(() => push('/bet'))
+      .catch(error => {
+        console.log(error);
+        setMessage(error.message)
+    });
   }
 
   return (
@@ -29,6 +39,9 @@ export default function Home() {
               <p className="text-xl py-3 text-center mdl:text-start">On-chain betting at your best opinions.</p>
               <p className="text-xl py-3 text-center mdl:text-start">Authenticate with your wallet and place your bet on what you believe in.</p>
               <Button icon={"/logos/MetaMask_Fox.png"} onClick={loginBtnClick}>Connect with your Metamask</Button>
+              <div className="h-6 py-1">
+                <span>{message}</span>
+              </div>
             </div>
           </section>
           <div className="w-2/5 min-w-80"><Slider /></div>

@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 
-export async function singIn() {
+export async function signIn() {
 
     if (!window.ethereum) throw new Error('No wallet detected.');
 
