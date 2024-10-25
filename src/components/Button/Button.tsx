@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    icon?: React.ReactNode | string,
-    children?: React.ReactNode,
+    icon?: React.ReactNode | string;
+    children?: React.ReactNode;
 }
 
 export default function Button({ icon, children, ...props }: IButtonProps) {

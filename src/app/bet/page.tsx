@@ -1,18 +1,39 @@
 "use client";
 
+import { TDispute } from "@/@types/dispute";
 import Button from "@/components/Button/Button";
+import { getDispute } from "@/services/Web3Services";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Web3 from "web3";
 
 export default function Bet() {
-
   const { push } = useRouter();
   const [message, setMessage] = useState('');
+  const [dispute, setDispute] = useState({
+    candidate1: "Loading...",
+    candidate2: "Loading...",
+    image1: "/placeholder-image.jpg",
+    image2: "/placeholder-image.jpg",
+    total1: 0,
+    total2: 0
+  });
 
   useEffect(() => {
     if (!localStorage.getItem("MetaMaskAccount")) return push("/");
+    setMessage('Loading contract data...');
+    getDispute()
+      .then((dispute: TDispute) => {
+        setDispute(dispute);
+        setMessage('');
+      })
+      .catch(error => {
+        console.log(error);
+        setMessage(error.message)
+      }
+      );
   }, [push]);
 
   return (
@@ -40,32 +61,28 @@ export default function Bet() {
           </header>
           <main className="flex flex-col my-4 mdl:pt-12 mdl:pb-12 mdl:flex-row items-center place-content-around">
             <div className="flex flex-col justify-center">
-              <h2 className="text-2xl font-bold">Donald Trump</h2>
+              <h2 className="text-2xl font-bold">{dispute.candidate1}</h2>
               <Image
-                src={
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/220px-Donald_Trump_official_portrait.jpg"
-                }
+                src={dispute.image1}
                 alt="Choice 1"
                 width={300}
                 height={400}
                 className="my-1 rounded-md shadow-sm"
               />
               <Button>Bet in this option</Button>
-              <span>Bet amount: $$$$</span>
+              <span>Bet amount: { Web3.utils.fromWei(dispute.total1, "tether") }</span>
             </div>
             <div className="flex flex-col justify-center">
-              <h2 className="text-2xl font-bold">Donald Trump</h2>
+              <h2 className="text-2xl font-bold">{dispute.candidate2}</h2>
               <Image
-                src={
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/220px-Donald_Trump_official_portrait.jpg"
-                }
+                src={dispute.image2}
                 alt="Choice 1"
                 width={300}
                 height={400}
                 className="my-1 rounded-md shadow-sm"
               />
               <Button>Bet in this option</Button>
-              <span>Bet amount: $$$$</span>
+              <span>Bet amount: { Web3.utils.fromWei(dispute.total2, "tether") }</span>
             </div>
           </main>
         </div>

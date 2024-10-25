@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import ABI from './ABI.json'
+import { TDispute } from '@/@types/dispute';
 
 const CONTRACT_ADDRESS = "0xBeC5Ce8Fc44c75edAd009225F632BeB67DB25580";
 
@@ -22,4 +23,9 @@ function getContract() {
     const from = localStorage.getItem("MetaMaskAccount") || '';
     const web3 = new Web3(window.ethereum);
     return new web3.eth.Contract(ABI, CONTRACT_ADDRESS, { from });
+}
+
+export async function getDispute(): Promise<TDispute> {
+    const contract = getContract();
+    return contract.methods.dispute().call();
 }
