@@ -29,3 +29,15 @@ export async function getDispute(): Promise<TDispute> {
     const contract = getContract();
     return contract.methods.dispute().call();
 }
+
+export async function placeBet(candidate: number, amountInEth: number) {
+    const contract = getContract();
+    return contract.methods.bet(candidate).send({
+        value: Web3.utils.toWei(amountInEth, "ether")
+    });
+}
+
+export async function claimPrize() {
+    const contract = getContract();
+    return contract.methods.claim().send();
+}

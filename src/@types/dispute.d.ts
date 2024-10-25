@@ -5,4 +5,5 @@ export type TDispute = {
   image2: string;
   total1: number;
   total2: number;
+  winner: number;
 };
