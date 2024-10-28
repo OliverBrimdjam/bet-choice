@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+The smart-contract file is placed on project root folder, is named as 'BetCandidate.sol', It was tested with the poligon test blockchain, using remix.ethereum.org. Please, upload the smart-contract file on remix.ethereum.org and deploy this contract to test.
+
+So, run the development server:
 
 ```bash
 npm run dev

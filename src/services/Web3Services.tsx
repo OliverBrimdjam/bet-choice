@@ -2,7 +2,9 @@ import Web3 from 'web3';
 import ABI from './ABI.json'
 import { TDispute } from '@/@types/dispute';
 
-const CONTRACT_ADDRESS = "0xBeC5Ce8Fc44c75edAd009225F632BeB67DB25580";
+const CONTRACT_ADDRESS = "0x6FeFEc85D666acC5D8fa55A347207B000b675191";
+
+
 
 export async function signIn() {
 

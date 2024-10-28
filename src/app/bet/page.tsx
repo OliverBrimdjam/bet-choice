@@ -92,7 +92,7 @@ export default function Bet() {
           <main className="flex flex-col my-4 mdl:pt-12 mdl:pb-12 mdl:flex-row items-center place-content-around">
             <div className="flex flex-col justify-center">
               {
-                dispute.winner === 0 || dispute.winner === 1
+                dispute.winner == 0 || dispute.winner == 1
                   ? <>
                       <h2 className="text-2xl font-bold">{dispute.candidate1}</h2>
                       <Image
@@ -103,7 +103,7 @@ export default function Bet() {
                         className="my-1 rounded-md shadow-sm"
                     />
                     {
-                      dispute.winner === 0
+                      dispute.winner == 0
                         ? <Button onClick={() => handleBet(1)}>Bet in this option</Button>
                         : <Button onClick={handleClaim}>Get your Prize!</Button>
                     }
@@ -115,18 +115,18 @@ export default function Bet() {
             </div>
             <div className="flex flex-col justify-center">
               {
-                dispute.winner === 0 || dispute.winner === 2
+                dispute.winner == 0 || dispute.winner == 2
                   ? <>
                     <h2 className="text-2xl font-bold">{dispute.candidate2}</h2>
                     <Image
                       src={dispute.image2}
-                      alt="Choice 1"
+                      alt="Choice 2"
                       width={300}
                       height={400}
                       className="my-1 rounded-md shadow-sm"
                     />
                     {
-                      dispute.winner === 0
+                      dispute.winner == 0
                         ? <Button onClick={() => handleBet(2)}>Bet in this option</Button>
                         : <Button onClick={handleClaim}>Get your Prize!</Button>
                     }

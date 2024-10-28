@@ -39,8 +39,8 @@ export default function Home() {
               <p className="text-xl py-3 text-center mdl:text-start">On-chain betting at your best opinions.</p>
               <p className="text-xl py-3 text-center mdl:text-start">Authenticate with your wallet and place your bet on what you believe in.</p>
               <Button icon={"/logos/MetaMask_Fox.png"} onClick={loginBtnClick}>Connect with your Metamask</Button>
-              <div className="h-6 py-1">
-                <span>{message}</span>
+              <div className="h-6 py-1 truncate">
+                <span className="text-amber-400">{message}</span>
               </div>
             </div>
           </section>
